@@ -3,7 +3,6 @@ import globals
 
 
 def global_init():
-    print("checking if env imported " + str(globals.DB))
     mongoengine.register_connection(
         db=globals.DB,
         host=globals.MONGO_HOST,
