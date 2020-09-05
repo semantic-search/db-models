@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 MONGO_HOST = os.getenv("MONGO_HOST")
 DB = os.getenv('MONGO_DB')
