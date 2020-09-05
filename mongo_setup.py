@@ -1,5 +1,5 @@
 import mongoengine
-from . import config
+import config
 
 
 def global_init():
