@@ -16,6 +16,7 @@ class Cache(mongoengine.Document):
     date = mongoengine.DateTimeField(default=datetime.datetime.now)
     text = mongoengine.StringField(max_length=None)
     contains_images = mongoengine.BooleanField()
+    image_location = mongoengine.DictField()
     meta = {
         'db_alias': 'core',
         'collection': 'cache'
