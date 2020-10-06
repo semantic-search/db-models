@@ -14,8 +14,8 @@ class Cache(mongoengine.Document):
     files = mongoengine.EmbeddedDocumentListField(FilesModel, default=None)
     is_doc_type = mongoengine.BooleanField(required=True)
     date = mongoengine.DateTimeField(default=datetime.datetime.now)
-    text = mongoengine.StringField(max_length=None)
-    contains_images = mongoengine.BooleanField()
+    text = mongoengine.StringField(max_length=None, default=None)
+    contains_images = mongoengine.BooleanField(default=None)
     image_location = mongoengine.DictField(default=None)
     meta = {
         'db_alias': 'core',
