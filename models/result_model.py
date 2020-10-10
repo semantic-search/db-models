@@ -1,6 +1,6 @@
 import mongoengine
 
 
-class ResultModel(mongoengine.EmbeddedDocument):
+class Result(mongoengine.EmbeddedDocument):
     model_name = mongoengine.StringField(required=True)
-    results = mongoengine.DictField(required=True)
+    results = mongoengine.ListField(required=True)
