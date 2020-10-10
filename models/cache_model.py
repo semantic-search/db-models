@@ -1,7 +1,7 @@
 import mongoengine
 import datetime
-from .file_model import FilesModel
-from .result_model import ResultModel
+from .file_model import *
+
 
 class Cache(mongoengine.Document):
     """Main model"""
@@ -11,10 +11,12 @@ class Cache(mongoengine.Document):
     """Original File"""
     mime_type = mongoengine.StringField(required=True)
     """Mime types can be ["jpeg","jpg", "png", "wav","pdf", "docx", "pptx", "xlsx", "epub"] """
-    files = mongoengine.EmbeddedDocumentListField(FilesModel)
+    files = mongoengine.EmbeddedDocumentListField(FilesModel, default=None)
     is_doc_type = mongoengine.BooleanField(required=True)
     date = mongoengine.DateTimeField(default=datetime.datetime.now)
-    results = mongoengine.EmbeddedDocumentListField(ResultModel)
+    text = mongoengine.StringField(max_length=None, default=None)
+    contains_images = mongoengine.BooleanField(default=None)
+    image_location = mongoengine.DictField(default=None)
     meta = {
         'db_alias': 'core',
         'collection': 'cache'
