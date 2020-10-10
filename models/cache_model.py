@@ -1,7 +1,7 @@
 import mongoengine
 import datetime
-from .file_model import *
-
+from .file_model import FilesModel
+from .result_model import ResultModel
 
 class Cache(mongoengine.Document):
     """Main model"""
@@ -14,6 +14,7 @@ class Cache(mongoengine.Document):
     files = mongoengine.EmbeddedDocumentListField(FilesModel)
     is_doc_type = mongoengine.BooleanField(required=True)
     date = mongoengine.DateTimeField(default=datetime.datetime.now)
+    results = mongoengine.EmbeddedDocumentListField(ResultModel)
     meta = {
         'db_alias': 'core',
         'collection': 'cache'
