@@ -1,7 +1,7 @@
 import mongoengine
 import datetime
 from .file_model import FilesModel
-from .result_model import ResultModel
+from .result_model import Result
 
 
 class Cache(mongoengine.Document):
@@ -18,7 +18,7 @@ class Cache(mongoengine.Document):
     text = mongoengine.StringField(max_length=None, default=None)
     contains_images = mongoengine.BooleanField(default=None)
     image_location = mongoengine.DictField(default=None)
-    results = mongoengine.EmbeddedDocumentListField(ResultModel, default=None)
+    results = mongoengine.ListField(mongoengine.EmbeddedDocumentField(Result, default=None))
     meta = {
         'db_alias': 'core',
         'collection': 'cache'
