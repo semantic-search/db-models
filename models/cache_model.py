@@ -16,7 +16,7 @@ class Cache(mongoengine.Document):
     is_doc_type = mongoengine.BooleanField(required=True)
     date = mongoengine.DateTimeField(default=datetime.datetime.now)
     text = mongoengine.StringField(max_length=None, default=None)
-    is_stt=mongoengine.BooleanField(required=False)
+    is_stt = mongoengine.BooleanField(required=False)
     contains_images = mongoengine.BooleanField(default=None)
     image_location = mongoengine.DictField(default=None)
     results = mongoengine.ListField(mongoengine.EmbeddedDocumentField(Result, default=None))
