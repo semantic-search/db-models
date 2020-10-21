@@ -8,5 +8,5 @@ class FaceModel(mongoengine.Document):
     file = mongoengine.FileField(required=True)
     meta = {
         'db_alias': 'core',
-        'collection': 'features'
+        'collection': 'faces'
     }
