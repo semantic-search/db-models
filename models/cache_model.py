@@ -20,6 +20,7 @@ class Cache(mongoengine.Document):
     contains_images = mongoengine.BooleanField(default=None)
     image_location = mongoengine.DictField(default=None)
     results = mongoengine.ListField(mongoengine.EmbeddedDocumentField(Result, default=None))
+    faces = mongoengine.ListField(default=None)
     meta = {
         'db_alias': 'core',
         'collection': 'cache'
