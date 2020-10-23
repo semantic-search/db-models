@@ -18,8 +18,8 @@ class Cache(mongoengine.Document):
     is_stt = mongoengine.BooleanField(required=False)
     contains_images = mongoengine.BooleanField(default=None)
     image_location = mongoengine.DictField(default=None)
-    labels = mongoengine.ListField(default=None)
-    scores = mongoengine.ListField(default=None)
+    labels = mongoengine.ListField(default=[])
+    scores = mongoengine.ListField(default=[])
     faces = mongoengine.ListField(default=None)
     meta = {
         'db_alias': 'core',
