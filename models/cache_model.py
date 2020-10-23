@@ -1,7 +1,6 @@
 import mongoengine
 import datetime
 from .file_model import FilesModel
-from .result_model import Result
 
 
 class Cache(mongoengine.Document):
